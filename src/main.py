@@ -1,11 +1,8 @@
-from __init__ import get_mask_account, get_mask_card_number
-from widget import get_date
+from widget import get_date, mask_account_card
 
-# inputting
-number_card = input()
+#inputting
+card = input()
 date = input()
 
-# write
-print(get_mask_card_number(number_card))
-print(get_mask_account(number_card))
+print(mask_account_card(card))
 print(get_date(date))

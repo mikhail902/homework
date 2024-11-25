@@ -1,19 +1,17 @@
-from typing import Union
+from masks import get_mask_account, get_mask_card_number
 
 
-def mask_account_card(card: Union[str, int]) -> str:
-    """Функция скрытия карты"""
-
-    for i in range(len(card)):
-        if card[i].isdigit():
-            mask_account_card = card[:i] + " " + 2 * "*" + card[-4:]
-            break
-    return mask_account_card
+def mask_account_card(card: str) -> str:
+    """Функция ввода карты"""
+    mask_card = get_mask_card_number(card)
+    mask_account = get_mask_account(card)
+    return f"{mask_card} \naccount: {mask_account}"
 
 
-def get_date(date: Union[str, int]) -> str:
+def get_date(date: str) -> str:
     """Функция преобразованияя даты"""
 
-    arrayse_date = date[:10]
-    result_date = arrayse_date.replace("-", ".")
-    return result_date
+    result_date = date.split("-")
+    for i in range(3):
+        final_date = result_date[:3]
+    return ".".join(final_date)
