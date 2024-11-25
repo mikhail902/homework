@@ -3,7 +3,7 @@ def get_mask_card_number(card: str) -> str:
 
     for i in range(len(card)):
         if card[i].isdigit():
-            mask_card = card[:i] + card[i: i + 4] + 8 * "*" + card[-4:]
+            mask_card = card[:i] + card[i : i + 4] + 8 * "*" + card[-4:]
             break
     return mask_card
 
