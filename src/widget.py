@@ -10,7 +10,7 @@ def mask_account_card(card: str) -> str:
 
 def get_date(date: str) -> str:
     """Функция преобразованияя даты"""
-
+    final_date=''
     result_date = date.split("-")
     for i in range(3):
         final_date = result_date[:3]
