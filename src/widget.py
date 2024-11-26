@@ -1,17 +1,23 @@
+from datetime import datetime
+
 from masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(card: str) -> str:
-    """Функция ввода карты"""
-    mask_card = get_mask_card_number(card)
-    mask_account = get_mask_account(card)
-    return f"{mask_card} \naccount: {mask_account}"
+    """Маскирует номер карты или счета в строке"""
+
+    if card.startswith("Счет"):
+        mask_card = get_mask_account(card)
+    else:
+        mask_card = get_mask_card_number(card)
+
+    return mask_card
 
 
-def get_date(date: str) -> str:
+def get_date(date: str) -> datetime.date:
     """Функция преобразованияя даты"""
 
-    result_date = date.split("-")
-    for i in range(3):
-        final_date = result_date[:3]
-    return ".".join(final_date)
+    date_list = date.split("T")
+    date_str = date_list[0]
+    date_object = datetime.strptime(date_str, "%Y-%m-%d").date()
+    return date_object
