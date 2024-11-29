@@ -1,6 +1,6 @@
 from widget import get_date, mask_account_card
 
-#inputting
+# inputting
 card = input()
 date = input()
 
